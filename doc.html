@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>How to Use</title>
+</head>
+<body>
+	<h3>Initialize module/h3>
+	<pre>
+		$loader-&lt;load('pdsearch')-&lt;init();
+	</pre>
+	<strong>then tailor your input search</strong>
+	<pre>
+		&lt;input type="text" 
+		data-url="" 
+		data-storage="" 
+		data-spellchecker="" 
+		data-recentsearches=""
+		data-template="#template"
+		data-modify-results=""
+		data-db=""
+		class="pdsearch"
+		&gt;
+		&lt;div style="display:none;" data-key="key1,key2,key3" data-orderkey="key2" data-click="onclick"&gt;
+			&lt;div&gt;$key1&lt;/div&gt;
+			&lt;div&gt;$key2&lt;//div&gt;
+			&lt;div&gt;$key3&lt;/div&gt;
+		&lt;/div&gt;
+
+	</pre>
+	<p>
+		<strong>data-url</strong> - your search API endpoint e.g. server.php, https://mywebsite.com/api/search
+	</p>
+	<p>
+		<strong>data-storage</strong> - weither to store results or not, default to true, value must be true or false only
+	</p>
+	<p>
+		<strong>data-spellchecker</strong> - weither to use spellchecker mechanism or not, default to true, value must be true or false only
+	</p>
+	<p>
+		<strong>data-recentsearches</strong> - weither to use the recent searches mechanism or not, default to true, value must be true or false only
+	</p>
+	<p>
+		<strong>data-db</strong> - custom db name
+	</p>
+	<p>
+		<strong>data-modify-results</strong> - a function name where raw data will be pass on before render e.g.
+	</p>
+	<pre>
+		<script>
+			function test(e){
+				e.forEach(function(el){
+					console.log(el);
+				});
+
+				return e;
+			}
+		</script>
+	</pre>
+	<p>
+		<strong>data-template</strong> - this is essential, basically, this is just a template for the results, where dollar sign ($) + word will represent the result object from the attribute data-key
+	</p>
+	<h4>Template Data Attributes</h4>
+	<p>
+		<strong>data-keys</strong> - object keys that the plugin expect from the api response e.g.
+	</p>
+	<pre>
+		<code>
+[{ key1 : 'key1', key2 : 'key2', key3 : 'key3' }];
+		</code>
+	</pre>
+	<p>
+		<strong>data-orderkey</strong> - by default, the plugin sort the results by the word closest to the keyword base on the first key on the data-keys, yet you can also define the order key by specifying it on data-orderkey e.g.
+	</p>
+	<pre>
+		<code>
+data-orderkey="key2"
+		</code>
+	</pre>
+	<br>
+	<p>
+		By default, storage will reset in 5 days or when you specify a version that triggers the reset of storage. e,g,
+	</p>
+	<pre>
+		<code>
+var appVersion = 3;
+		</code>
+	</pre>
+	<p>
+		In custom db, you can add an attribute (data-version="") and (data-expiration="") to control the reset time of the storage.
+	</p>
+
+</body>
+</html>

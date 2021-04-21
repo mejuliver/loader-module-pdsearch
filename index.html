@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head> 
+<body>
+
+	<div class="container" style="margin-top:32px;">
+		<form class="row" action="">
+			<div class="col-12">
+				<input type="text" class="pdsearch"
+				data-url="https://cnapi.connectnigeria.com/api/v2/cnapp/autosuggestions2?api_token=H3rUbN0crD0aMcDYwwtNGNN7bai6z6w7"
+				data-template="#pdsearch" 
+				data-recentsearches="false"
+				>
+			</div>
+			<div class="col-12">
+				<input type="text" class="pdsearch"
+				data-url="https://cnapi.connectnigeria.com/api/v2/cnapp/autosuggestions2?api_token=H3rUbN0crD0aMcDYwwtNGNN7bai6z6w7"
+				data-template="#pdsearch" 
+				>
+			</div>
+			<div class="col-12">
+				<input type="text" class="pdsearch"
+				data-url="https://cnapi.connectnigeria.com/api/v2/cnapp/autosuggestions2?api_token=H3rUbN0crD0aMcDYwwtNGNN7bai6z6w7"
+				data-template="#pdsearch" 
+				>
+			</div>
+			<button class="btn">test</button>
+		</form>
+	</div>
+
+	<div id="pdsearch" style="display:none" data-orderkey="title" data-keys="listing_id,title,origin,title,listing_category" data-click="clicktest">
+		<div>$title</div>
+		<div>$listing_category</div>
+		<div>$origin</div>
+	</div>
+	<script>
+		var appVersion = 8;
+	</script>
+	<script src="./src/index.js"></script>
+	<script>	
+		function clicktest(e){
+			console.log(e);
+		}
+	</script>
+</body>
+</html>
